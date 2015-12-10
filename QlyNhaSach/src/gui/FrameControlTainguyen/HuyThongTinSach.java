@@ -7,7 +7,6 @@ import java.sql.*;
 import java.awt.Cursor;
 import java.awt.Font;
 import java.awt.Color;
-import java.awt.HeadlessException;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -128,7 +127,8 @@ public class HuyThongTinSach extends JFrame {
                                 tfTenSach.setText("");
                             }
 
-                        } catch (SQLException | HeadlessException e) {
+                        } catch (Exception e) {
+                            e.printStackTrace();
                         }
                     }
                 });
@@ -185,7 +185,8 @@ public class HuyThongTinSach extends JFrame {
                                 tfMaSach.setText("");
                             }
 
-                        } catch (SQLException | HeadlessException e) {
+                        } catch (Exception e) {
+                            e.printStackTrace();
                         }
                     }
                 });
@@ -215,7 +216,8 @@ public class HuyThongTinSach extends JFrame {
                         JOptionPane.showMessageDialog(null, "Xóa thành công", "Xóa", JOptionPane.INFORMATION_MESSAGE);
                     }
 
-                } catch (SQLException | HeadlessException e) {
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
 
             }

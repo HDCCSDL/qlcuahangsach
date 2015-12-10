@@ -11,7 +11,7 @@ public class MySQLConnect {
     int _port = 3306;
     String _userName = "root";
     String _pass = "";
-    String _dataBase = "qlnhasach";
+    String _dataBase = "qlynhasach";
 
     Connection _connect = null;
     ResultSet _result = null;

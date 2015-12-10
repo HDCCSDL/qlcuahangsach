@@ -9,7 +9,6 @@ import java.sql.*;
 import java.awt.Cursor;
 import java.awt.Font;
 import java.awt.Color;
-import java.awt.HeadlessException;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -297,7 +296,8 @@ public class ChinhSuaThongTinSach extends JFrame {
                                 tfTenSach.setText("");
                             }
 
-                        } catch (SQLException | HeadlessException e) {
+                        } catch (Exception e) {
+                            e.printStackTrace();
                         }
                     }
                 });
@@ -359,7 +359,8 @@ public class ChinhSuaThongTinSach extends JFrame {
                                 JOptionPane.showMessageDialog(null, "Mã sách không tồn tại", "Thông báo", JOptionPane.ERROR_MESSAGE);
                                 tfMaSach.setText("");
                             }
-                        } catch (SQLException | HeadlessException e) {
+                        } catch (Exception e) {
+                            e.printStackTrace();
                         }
                     }
                 });
@@ -374,7 +375,6 @@ public class ChinhSuaThongTinSach extends JFrame {
 
         tfmasach.addMouseListener(new MouseAdapter() {
 
-            @Override
             public void mouseExited(MouseEvent ev) {
                 try {
                     Statement statement = ketnoi.ConnectDB.getConnection().createStatement();
@@ -388,7 +388,8 @@ public class ChinhSuaThongTinSach extends JFrame {
                         }
                     }
 
-                } catch (SQLException | HeadlessException e) {
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
             }
 
@@ -416,6 +417,7 @@ public class ChinhSuaThongTinSach extends JFrame {
                         }
 
                     } catch (Exception e) {
+                        e.printStackTrace();
                     }
                 } else {
                     try {
@@ -434,6 +436,7 @@ public class ChinhSuaThongTinSach extends JFrame {
                         }
 
                     } catch (Exception e) {
+                        e.printStackTrace();
                     }
                 }
 
@@ -477,7 +480,8 @@ public class ChinhSuaThongTinSach extends JFrame {
                         }
                     }
 
-                } catch (NumberFormatException | SQLException | HeadlessException e) {
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
 
             }

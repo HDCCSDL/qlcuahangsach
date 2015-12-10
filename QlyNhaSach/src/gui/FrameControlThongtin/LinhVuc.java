@@ -14,13 +14,11 @@ import javax.swing.JScrollPane;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import java.awt.Font;
-import java.awt.HeadlessException;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Vector;
 import javax.swing.JTextField;
@@ -41,7 +39,7 @@ public class LinhVuc extends JFrame {
         setLocationRelativeTo(null);
 
         JPanel panel = new JPanel();
-        panel.setBorder(new TitledBorder(null, "Th\u00F4ng tin l\u0129nh v\u1EF1c", TitledBorder.LEADING, TitledBorder.TOP, null, null));
+        panel.setBorder(new TitledBorder(null, "Thông tin lĩnh vực", TitledBorder.LEADING, TitledBorder.TOP, null, null));
         panel.setBounds(10, 11, 447, 60);
         getContentPane().add(panel);
         panel.setLayout(null);
@@ -52,7 +50,7 @@ public class LinhVuc extends JFrame {
         panel.add(lbMaLinhVuc);
 
         tfMaLinhVuc = new JTextField();
-        tfMaLinhVuc.setBounds(84, 22, 80, 20);
+        tfMaLinhVuc.setBounds(84, 22, 80, 25);
         panel.add(tfMaLinhVuc);
         tfMaLinhVuc.setColumns(10);
 
@@ -63,7 +61,7 @@ public class LinhVuc extends JFrame {
 
         tfTenLinhVuc = new JTextField();
         tfTenLinhVuc.setColumns(10);
-        tfTenLinhVuc.setBounds(269, 22, 168, 20);
+        tfTenLinhVuc.setBounds(269, 22, 168, 25);
         panel.add(tfTenLinhVuc);
 
         JScrollPane scrollPane = new JScrollPane();
@@ -108,7 +106,7 @@ public class LinhVuc extends JFrame {
             public void mouseExited(MouseEvent ev) {
                 try {
 
-                    if (tfMaLinhVuc.getText().length() > 2) {
+                    if (tfMaLinhVuc.getText().length() > 5) {
                         JOptionPane.showMessageDialog(null, "Mã lĩnh vực không đúng quy định");
                         tfMaLinhVuc.requestFocus();
                     } else {
@@ -117,13 +115,14 @@ public class LinhVuc extends JFrame {
                         ResultSet rs = statement.executeQuery(sql);
 
                         while (rs.next()) {
-                            if (tfMaLinhVuc.getText().toUpperCase().equals(rs.getString("MALINHVUC"))) {
+                            if (tfMaLinhVuc.getText().equals(rs.getString("MALINHVUC"))) {
                                 JOptionPane.showMessageDialog(null, "Mã lĩnh vực bị trùng");
                                 tfMaLinhVuc.setText("");
                             }
                         }
                     }
-                } catch (HeadlessException | SQLException e) {
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
             }
         });
@@ -143,17 +142,20 @@ public class LinhVuc extends JFrame {
                     try {
 
                         Statement statement = ketnoi.ConnectDB.getConnection().createStatement();
-                        String sql = String.format("INSERT INTO LINHVUC VALUES ('%s','%s')", malv.toUpperCase(), tenlv.toUpperCase());
+                        String sql = String.format("INSERT INTO LINHVUC VALUES ('%s','%s')", malv, tenlv);
                         int n = statement.executeUpdate(sql);
 
                         if (n == 1) {
                             JOptionPane.showMessageDialog(null, "Thêm lĩnh vực mới thành công", "Hoàn tất", JOptionPane.INFORMATION_MESSAGE);
+                            tfMaLinhVuc.setText("");
+                            tfTenLinhVuc.setText("");
                         } else {
                             JOptionPane.showMessageDialog(null, "Lỗi!! Vui lòng kiểm tra lại", "Thông báo", JOptionPane.ERROR_MESSAGE);
                         }
                         LoadTable();
 
-                    } catch (SQLException | HeadlessException e) {
+                    } catch (Exception e) {
+                        e.printStackTrace();
                     }
 
                 }
@@ -169,7 +171,7 @@ public class LinhVuc extends JFrame {
                 if (index == -1) {
                     JOptionPane.showMessageDialog(null, "Xin vui lòng chọn dòng cần sửa");
                 } else if (tfMaLinhVuc.getText().equals("") || tfTenLinhVuc.getText().equals("")) {
-                    JOptionPane.showMessageDialog(null, "Vui lòng điền đầy đủ thoongg tin");
+                    JOptionPane.showMessageDialog(null, "Vui lòng điền đầy đủ thông tin");
                 } else if (tfMaLinhVuc.getText().length() < 2) {
                     JOptionPane.showMessageDialog(null, "Mã loại sách không đúng quy định");
                     tfMaLinhVuc.requestFocus();
@@ -177,7 +179,7 @@ public class LinhVuc extends JFrame {
                     try {
                         String mlv = String.valueOf(table.getValueAt(index, 0));
                         Statement statement = ketnoi.ConnectDB.getConnection().createStatement();
-                        String sql = String.format("UPDATE LINHVUC SET MALINHVUC = '%s',TENLINHVUC = '%s' WHERE MALINHVUC = '%s'", tfMaLinhVuc.getText().toUpperCase(), tfTenLinhVuc.getText().toUpperCase(), mlv);
+                        String sql = String.format("UPDATE LINHVUC SET MALINHVUC = '%s',TENLINHVUC = '%s' WHERE MALINHVUC = '%s'", tfMaLinhVuc.getText(), tfTenLinhVuc.getText(), mlv);
                         int n = statement.executeUpdate(sql);
 
                         if (n == 1) {
@@ -187,7 +189,8 @@ public class LinhVuc extends JFrame {
                             JOptionPane.showMessageDialog(null, "Lỗi!!Vui lòng kiểm tra lại");
                         }
 
-                    } catch (SQLException | HeadlessException e) {
+                    } catch (Exception e) {
+                        e.printStackTrace();
                     }
                 }
             }
@@ -195,7 +198,6 @@ public class LinhVuc extends JFrame {
 
         table.addMouseListener(new MouseAdapter() {
 
-            @Override
             public void mouseClicked(MouseEvent arg0) {
                 // TODO Auto-generated method stub
                 int index = table.getSelectedRow();
@@ -228,6 +230,7 @@ public class LinhVuc extends JFrame {
             table.getColumnModel().getColumn(1).setPreferredWidth(200);
 
         } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 

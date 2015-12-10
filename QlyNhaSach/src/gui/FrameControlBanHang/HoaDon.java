@@ -68,7 +68,7 @@ public class HoaDon extends JFrame {
         setResizable(false);
 
         JPanel panel = new JPanel();
-        panel.setBorder(new TitledBorder(new LineBorder(new Color(192, 192, 192)), "Th\u00F4ng tin h\u00F3a \u0111\u01A1n", TitledBorder.LEADING, TitledBorder.TOP, null, null));
+        panel.setBorder(new TitledBorder(new LineBorder(new Color(192, 192, 192)), "Thông tin hóa đơn", TitledBorder.LEADING, TitledBorder.TOP, null, null));
         panel.setBounds(10, 11, 285, 151);
         getContentPane().add(panel);
         panel.setLayout(null);
@@ -142,7 +142,7 @@ public class HoaDon extends JFrame {
         getContentPane().add(bXoa);
 
         JPanel p1 = new JPanel();
-        p1.setBorder(new TitledBorder(new LineBorder(new Color(192, 192, 192)), "Th\u00F4ng tin s\u00E1ch", TitledBorder.LEADING, TitledBorder.TOP, null, null));
+        p1.setBorder(new TitledBorder(new LineBorder(new Color(192, 192, 192)), "Thông tin sách", TitledBorder.LEADING, TitledBorder.TOP, null, null));
         p1.setBounds(483, 11, 200, 102);
         getContentPane().add(p1);
         p1.setLayout(null);
@@ -441,7 +441,7 @@ public class HoaDon extends JFrame {
                             }
                         }
 
-                        String sql = String.format("SELECT GIABIA FROM THONGTINXUATBAN WHERE MASACH = '%s'", masach);
+                        String sql = String.format("SELECT GIABIA FROM THONGTINXUATBAN  WHERE MASACH = '%s'", masach);
                         ResultSet rs = statement.executeQuery(sql);
 
                         while (rs.next()) {
@@ -469,8 +469,7 @@ public class HoaDon extends JFrame {
         try {
             maHD = 1;
             String tenKH = tfTenKhachHang.getText();
-            @SuppressWarnings("UnusedAssignment")
-            String ngay = null;
+            String ngay;
             if (tenKH.equals("")) {
                 tenKH = "NULL";
             }
@@ -500,7 +499,7 @@ public class HoaDon extends JFrame {
 
     public void insertChiTietHoaDon() {
 
-        for (@SuppressWarnings("LocalVariableHidesMemberVariable") int i = 0; i < dem; i++) {
+        for (int i = 0; i < dem; i++) {
             Vector duLieu = (Vector) tableRecords.get(i);
             String masach = String.valueOf(duLieu.get(0));
             int soluong = Integer.valueOf(duLieu.get(2).toString());

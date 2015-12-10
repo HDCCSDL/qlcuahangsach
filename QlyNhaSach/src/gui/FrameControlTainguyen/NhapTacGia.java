@@ -10,13 +10,11 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JLabel;
 import java.awt.Font;
-import java.awt.HeadlessException;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.sql.Statement;
 import javax.swing.border.TitledBorder;
 import javax.swing.JTextField;
@@ -40,7 +38,7 @@ public class NhapTacGia extends JFrame {
         setResizable(false);
 
         JPanel panel = new JPanel();
-        panel.setBorder(new TitledBorder(null, "Nh\u1EADp d\u1EEF li\u1EC7u", TitledBorder.LEADING, TitledBorder.TOP, null, null));
+        panel.setBorder(new TitledBorder(null, "Nhập dữ liệu", TitledBorder.LEADING, TitledBorder.TOP, null, null));
         panel.setBounds(10, 11, 284, 204);
         getContentPane().add(panel);
         panel.setLayout(null);
@@ -170,7 +168,8 @@ public class NhapTacGia extends JFrame {
                             tfMaTacGia.setText("");
                         }
                     }
-                } catch (SQLException | HeadlessException e) {
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
 
             }
@@ -222,7 +221,8 @@ public class NhapTacGia extends JFrame {
                         JOptionPane.showMessageDialog(null, "Lỗi", "Thông báo", JOptionPane.ERROR_MESSAGE);
                     }
 
-                } catch (SQLException | HeadlessException e) {
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
 
             }
@@ -266,7 +266,8 @@ public class NhapTacGia extends JFrame {
                             tfMaTacGia.requestFocus();
                         }
                     }
-                } catch (HeadlessException | SQLException e) {
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
 
             }

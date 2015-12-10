@@ -10,10 +10,8 @@ import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableModel;
 import java.awt.Color;
-import java.awt.HeadlessException;
 import java.awt.Toolkit;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Vector;
 import javax.swing.DefaultListModel;
@@ -103,7 +101,8 @@ public class TimKiemSach extends JFrame {
                                 tfTenSach.setText("");
                             }
 
-                        } catch (SQLException | HeadlessException e) {
+                        } catch (Exception e) {
+                            e.printStackTrace();
                         }
                     }
                 });
@@ -141,6 +140,7 @@ public class TimKiemSach extends JFrame {
                     }
 
                 } catch (Exception e) {
+                    e.printStackTrace();
                 }
 
             }

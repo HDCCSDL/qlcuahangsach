@@ -64,6 +64,7 @@ public class ThongTinXB extends JFrame {
             table.getColumnModel().getColumn(5).setPreferredWidth(10);
 
         } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 

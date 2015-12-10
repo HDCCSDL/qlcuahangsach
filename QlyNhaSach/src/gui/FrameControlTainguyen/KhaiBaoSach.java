@@ -15,7 +15,6 @@ import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 import javax.swing.JLabel;
 import java.awt.Font;
-import java.awt.HeadlessException;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
@@ -23,7 +22,6 @@ import java.awt.event.MouseListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.sql.Statement;
 import javax.swing.JTextField;
 import javax.swing.JButton;
@@ -51,7 +49,7 @@ public class KhaiBaoSach extends JFrame {
 
     public KhaiBaoSach() {
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        setIconImage(Toolkit.getDefaultToolkit().getImage(GUI.Login.class.getResource("/data/img/kb.png")));
+        setIconImage(Toolkit.getDefaultToolkit().getImage(GUI.jLogin.class.getResource("/data/img/kb.png")));
         setBounds(100, 100, 617, 288);
         getContentPane().setLayout(null);
         setTitle("Khai báo thông tin sách");
@@ -59,7 +57,7 @@ public class KhaiBaoSach extends JFrame {
         setResizable(false);
 
         JPanel p1 = new JPanel();
-        p1.setBorder(new TitledBorder(new LineBorder(new Color(192, 192, 192)), "Th\u00F4ng tin s\u00E1ch", TitledBorder.LEADING, TitledBorder.TOP, null, null));
+        p1.setBorder(new TitledBorder(new LineBorder(new Color(192, 192, 192)), "Thông tin sách", TitledBorder.LEADING, TitledBorder.TOP, null, null));
         p1.setBounds(10, 11, 308, 233);
         getContentPane().add(p1);
         p1.setLayout(null);
@@ -140,7 +138,7 @@ public class KhaiBaoSach extends JFrame {
         p1.add(cbMaLinhVuc);
 
         JPanel p3 = new JPanel();
-        p3.setBorder(new TitledBorder(new LineBorder(new Color(192, 192, 192)), "Th\u00F4ng tin xu\u1EA5t b\u1EA3n", TitledBorder.LEADING, TitledBorder.TOP, null, null));
+        p3.setBorder(new TitledBorder(new LineBorder(new Color(192, 192, 192)), "Thông tin xuất bản", TitledBorder.LEADING, TitledBorder.TOP, null, null));
         p3.setBounds(321, 11, 283, 194);
         getContentPane().add(p3);
         p3.setLayout(null);
@@ -228,6 +226,7 @@ public class KhaiBaoSach extends JFrame {
                     }
 
                 } catch (Exception e) {
+                    e.printStackTrace();
                 }
 
                 try {
@@ -242,6 +241,7 @@ public class KhaiBaoSach extends JFrame {
                     }
 
                 } catch (Exception e) {
+                    e.printStackTrace();
                 }
 
             }
@@ -268,6 +268,7 @@ public class KhaiBaoSach extends JFrame {
                     }
 
                 } catch (Exception e) {
+                    e.printStackTrace();
                 }
 
             }
@@ -384,7 +385,8 @@ public class KhaiBaoSach extends JFrame {
                                     }
                                 }
 
-                            } catch (SQLException | HeadlessException e) {
+                            } catch (Exception e) {
+                                e.printStackTrace();
                             }
                         }
 
@@ -408,7 +410,6 @@ public class KhaiBaoSach extends JFrame {
         bKhaiBao.addActionListener(new ActionListener() {
 
             @Override
-            @SuppressWarnings("empty-statement")
             public void actionPerformed(ActionEvent event) {
                 try {
 
@@ -451,7 +452,8 @@ public class KhaiBaoSach extends JFrame {
                         JOptionPane.showMessageDialog(null, "Thông tin xuất bản không được đính kèm", "Thông báo", JOptionPane.ERROR_MESSAGE);
                     }
 
-                } catch (NumberFormatException | SQLException | HeadlessException e) {
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
             }
         });

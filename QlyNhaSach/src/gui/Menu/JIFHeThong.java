@@ -2,6 +2,7 @@ package GUI.Menu;
 
 import GUI.FrameControlHeThong.DoiMatKhau;
 import GUI.FrameControlHeThong.TaoTaiKhoan;
+import GUI.ThongTin;
 //import GUI.FrameControlHeThong.JIFInfo;
 //import GUI.FrameControlHeThong.JIFSaoLuuData;
 //import GUI.FrameControlHeThong.JIFXoaData;
@@ -13,7 +14,7 @@ import javax.swing.JDesktopPane;
 
 /**
  *
- * @author 10520_000
+ * @author -dc
  */
 public class JIFHeThong extends javax.swing.JInternalFrame {
 
@@ -89,9 +90,9 @@ public class JIFHeThong extends javax.swing.JInternalFrame {
                 .addGroup(jPanelHeThongLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabelTieuDe5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelHeThongLayout.createSequentialGroup()
-                        .addGroup(jPanelHeThongLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButtonDoiMatKhau, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButtonTaoTaiKhoan, javax.swing.GroupLayout.DEFAULT_SIZE, 205, Short.MAX_VALUE))
+                        .addGroup(jPanelHeThongLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jButtonDoiMatKhau, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButtonTaoTaiKhoan, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 205, Short.MAX_VALUE))
                         .addContainerGap())))
         );
         jPanelHeThongLayout.setVerticalGroup(
@@ -170,7 +171,7 @@ public class JIFHeThong extends javax.swing.JInternalFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonDoiMatKhau;
-    private javax.swing.JButton jButtonTaoTaiKhoan;
+    public static javax.swing.JButton jButtonTaoTaiKhoan;
     private javax.swing.JLabel jLabelTieuDe5;
     private javax.swing.JPanel jPanelHeThong;
     private javax.swing.JScrollPane jScrollPane1;

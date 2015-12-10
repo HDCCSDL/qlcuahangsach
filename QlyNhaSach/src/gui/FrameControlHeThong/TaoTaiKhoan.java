@@ -10,14 +10,12 @@ import javax.swing.border.LineBorder;
 import java.awt.Color;
 import java.awt.Cursor;
 import java.awt.Font;
-import java.awt.HeadlessException;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.sql.Statement;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -116,7 +114,7 @@ public class TaoTaiKhoan extends JFrame {
         getContentPane().add(p3);
         p3.setLayout(null);
 
-        rbQuanLy = new JRadioButton("Quản lý");
+        rbQuanLy = new JRadioButton("Quản Lý");
         buttonGroup.add(rbQuanLy);
         rbQuanLy.setFont(new Font("Times New Roman", Font.PLAIN, 14));
         rbQuanLy.setBounds(6, 7, 109, 23);
@@ -124,11 +122,11 @@ public class TaoTaiKhoan extends JFrame {
 
         rbThuKho = new JRadioButton("Thủ Kho");
         buttonGroup.add(rbThuKho);
-        rbThuKho.setFont(new Font("Times New Roman", Font.PLAIN, 14));
+        rbThuKho.setFont(new Font("Times New Roman",Font.PLAIN, 14));
         rbThuKho.setBounds(6, 40, 109, 23);
         p3.add(rbThuKho);
 
-        rbNVBH = new JRadioButton("Nhân viên bán hàng");
+        rbNVBH = new JRadioButton("Nhân Viên Bán Hàng");
         buttonGroup.add(rbNVBH);
         rbNVBH.setFont(new Font("Times New Roman", Font.PLAIN, 14));
         rbNVBH.setBounds(6, 73, 146, 23);
@@ -168,19 +166,6 @@ public class TaoTaiKhoan extends JFrame {
         });
 
         tfUsername.addMouseListener(new MouseListener() {
-
-            @Override
-            public void mouseReleased(MouseEvent e) {
-                // TODO Auto-generated method stub
-
-            }
-
-            @Override
-            public void mousePressed(MouseEvent e) {
-                // TODO Auto-generated method stub
-
-            }
-
             @Override
             public void mouseExited(MouseEvent ev) {
                 try {
@@ -195,22 +180,30 @@ public class TaoTaiKhoan extends JFrame {
                             tfUsername.setText("");
                         }
                     }
-                } catch (SQLException | HeadlessException e) {
+                } catch (Exception e) {
                     e.printStackTrace();
                 }
 
             }
 
             @Override
-            public void mouseEntered(MouseEvent e) {
-                // TODO Auto-generated method stub
-
+            public void mouseClicked(MouseEvent e) {
+                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
             }
 
             @Override
-            public void mouseClicked(MouseEvent e) {
-                // TODO Auto-generated method stub
+            public void mousePressed(MouseEvent e) {
+                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            }
 
+            @Override
+            public void mouseReleased(MouseEvent e) {
+                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent e) {
+                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
             }
         });
 
@@ -230,7 +223,7 @@ public class TaoTaiKhoan extends JFrame {
                         DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
                         Date date = new Date();
                         String ngay = String.valueOf(dateFormat.format(date));
-                        String sql = String.format("INSERT INTO TAIKHOAN VALUES('%s','%s','%s','%s','%s','%s')", tfUsername.getText().toUpperCase(), String.valueOf(pfPassword.getPassword()).toUpperCase(), tfHoTen.getText().toUpperCase(), tfID.getText().toUpperCase(), ngay, tmp.toUpperCase());
+                        String sql = String.format("INSERT INTO TAIKHOAN VALUES('%s','%s','%s','%s','%s','%s')", tfUsername.getText(), String.valueOf(pfPassword.getPassword()), tfHoTen.getText(), tfID.getText(), ngay, tmp);
                         int n = statement.executeUpdate(sql);
 
                         if (n == 1) {
@@ -252,7 +245,8 @@ public class TaoTaiKhoan extends JFrame {
                         }
                     }
 
-                } catch (HeadlessException | SQLException e) {
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
             }
         });

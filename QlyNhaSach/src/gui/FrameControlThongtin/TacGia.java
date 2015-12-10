@@ -1,6 +1,5 @@
 package GUI.FrameControlThongtin;
 
-//import .*;
 import java.awt.Cursor;
 import java.awt.Toolkit;
 
@@ -10,13 +9,11 @@ import javax.swing.border.TitledBorder;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.JLabel;
 import java.awt.Font;
-import java.awt.HeadlessException;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Vector;
 import javax.swing.JOptionPane;
@@ -63,12 +60,12 @@ public class TacGia extends JFrame {
         panel.add(lbTenTacGia);
 
         tfMaTacGia = new JTextField();
-        tfMaTacGia.setBounds(77, 24, 70, 20);
+        tfMaTacGia.setBounds(77, 24, 70, 25);
         panel.add(tfMaTacGia);
         tfMaTacGia.setColumns(10);
 
         tfTenTacGia = new JTextField();
-        tfTenTacGia.setBounds(228, 24, 137, 20);
+        tfTenTacGia.setBounds(228, 24, 137, 25);
         panel.add(tfTenTacGia);
         tfTenTacGia.setColumns(10);
 
@@ -78,7 +75,7 @@ public class TacGia extends JFrame {
         panel.add(lbNamMat);
 
         tfNamMat = new JTextField();
-        tfNamMat.setBounds(77, 52, 70, 20);
+        tfNamMat.setBounds(77, 52, 70, 25);
         panel.add(tfNamMat);
         tfNamMat.setColumns(10);
 
@@ -89,7 +86,7 @@ public class TacGia extends JFrame {
 
         tfQueQuan = new JTextField();
         tfQueQuan.setColumns(10);
-        tfQueQuan.setBounds(228, 52, 137, 20);
+        tfQueQuan.setBounds(228, 52, 137, 25);
         panel.add(tfQueQuan);
 
         JLabel lbNamSinh = new JLabel("Năm sinh");
@@ -99,7 +96,7 @@ public class TacGia extends JFrame {
 
         tfNamSinh = new JTextField();
         tfNamSinh.setColumns(10);
-        tfNamSinh.setBounds(441, 24, 70, 20);
+        tfNamSinh.setBounds(441, 24, 70, 25);
         panel.add(tfNamSinh);
 
         JScrollPane scrollPane = new JScrollPane();
@@ -171,13 +168,14 @@ public class TacGia extends JFrame {
                         ResultSet rs = statement.executeQuery(sql);
 
                         while (rs.next()) {
-                            if (tfMaTacGia.getText().toUpperCase().equals(rs.getString("MATACGIA"))) {
+                            if (tfMaTacGia.getText().equals(rs.getString("MATACGIA"))) {
                                 JOptionPane.showMessageDialog(null, "Mã tác giả bị trùng");
                                 tfMaTacGia.setText("");
                             }
                         }
                     }
-                } catch (HeadlessException | SQLException e) {
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
             }
         });
@@ -198,17 +196,23 @@ public class TacGia extends JFrame {
                     try {
 
                         Statement statement = ketnoi.ConnectDB.getConnection().createStatement();
-                        String sql = String.format("UPDATE TACGIA SET MATACGIA = '%s',TENTACGIA = '%s',NAMSINH = '%s',NAMMAT = '%s',QUEQUAN = '%s' WHERE MATACGIA = '%s'", tfMaTacGia.getText().toUpperCase(), tfTenTacGia.getText().toUpperCase(), tfNamSinh.getText(), tfNamMat.getText(), tfQueQuan.getText().toUpperCase(), mtg);
+                        String sql = String.format("UPDATE TACGIA SET MATACGIA = '%s',TENTACGIA = '%s',NAMSINH = '%s',NAMMAT = '%s',QUEQUAN = '%s' WHERE MATACGIA = '%s'", tfMaTacGia.getText(), tfTenTacGia.getText(), tfNamSinh.getText(), tfNamMat.getText(), tfQueQuan.getText(), mtg);
                         int n = statement.executeUpdate(sql);
 
                         if (n == 1) {
                             JOptionPane.showMessageDialog(null, "Chỉnh sửa thành công");
+                            tfTenTacGia.setText("");
+                            tfMaTacGia.setText("");
+                            tfNamMat.setText("");
+                            tfNamSinh.setText("");
+                            tfQueQuan.setText("");
                             LoadTable();
                         } else {
                             JOptionPane.showMessageDialog(null, "Lỗi!!");
                         }
 
-                    } catch (SQLException | HeadlessException e) {
+                    } catch (Exception e) {
+                        e.printStackTrace();
                     }
                 }
 
@@ -244,7 +248,7 @@ public class TacGia extends JFrame {
                 } else {
                     try {
                         Statement statement = ketnoi.ConnectDB.getConnection().createStatement();
-                        String sql = String.format("INSERT INTO TACGIA VALUES ('%s','%s','%s','%s','%s')", matacgia.toUpperCase(), tentacgia.toUpperCase(), namsinh, nammat, quequan.toUpperCase());
+                        String sql = String.format("INSERT INTO TACGIA VALUES ('%s','%s','%s','%s','%s')", matacgia, tentacgia, namsinh, nammat, quequan);
                         int n = statement.executeUpdate(sql);
 
                         if (n == 1) {
@@ -254,7 +258,8 @@ public class TacGia extends JFrame {
                             JOptionPane.showMessageDialog(null, "Lỗi", "Thông báo", JOptionPane.ERROR_MESSAGE);
                         }
 
-                    } catch (SQLException | HeadlessException e) {
+                    } catch (Exception e) {
+                        e.printStackTrace();
                     }
                 }
             }
@@ -268,9 +273,7 @@ public class TacGia extends JFrame {
             Statement statement = ketnoi.ConnectDB.getConnection().createStatement();
             String sql = "SELECT * FROM TACGIA";
             ResultSet rs = statement.executeQuery(sql);
-            @SuppressWarnings("LocalVariableHidesMemberVariable")
             Vector col = new Vector();
-            @SuppressWarnings("LocalVariableHidesMemberVariable")
             Vector data = new Vector();
             col.add("Mã tác giả");
             col.add("Tên tác giả");
@@ -289,6 +292,7 @@ public class TacGia extends JFrame {
             table.getColumnModel().getColumn(1).setPreferredWidth(150);
 
         } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 

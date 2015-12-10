@@ -18,6 +18,7 @@ public class JIFBaoCao extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form JIFDanhMuc
+     *
      * @throws java.beans.PropertyVetoException
      */
     public JIFBaoCao() throws PropertyVetoException {

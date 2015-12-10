@@ -9,12 +9,10 @@ import javax.swing.border.LineBorder;
 import java.awt.Color;
 import java.awt.Cursor;
 import java.awt.Font;
-import java.awt.HeadlessException;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.sql.Statement;
 import javax.swing.JPasswordField;
 import javax.swing.JButton;
@@ -133,7 +131,8 @@ public class DoiMatKhau extends JFrame {
                                 JOptionPane.showMessageDialog(null, "Lỗi", "Thông báo", JOptionPane.ERROR_MESSAGE);
                             }
                         }
-                    } catch (SQLException | HeadlessException e) {
+                    } catch (Exception e) {
+                        e.printStackTrace();
                     }
                 }
             }

@@ -13,13 +13,11 @@ import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import javax.swing.JRadioButton;
 import java.awt.Font;
-import java.awt.HeadlessException;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.sql.Statement;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -51,7 +49,7 @@ public class NhapSach extends JFrame {
 
     public NhapSach() {
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        setIconImage(Toolkit.getDefaultToolkit().getImage(GUI.Login.class.getResource("/data/img/add book.png")));
+        setIconImage(Toolkit.getDefaultToolkit().getImage(GUI.jLogin.class.getResource("/data/img/add book.png")));
         setSize(540, 320);
         getContentPane().setLayout(null);
         setResizable(false);
@@ -59,7 +57,7 @@ public class NhapSach extends JFrame {
         setLocationRelativeTo(null);
 
         JPanel panel = new JPanel();
-        panel.setBorder(new TitledBorder(new LineBorder(new Color(192, 192, 192)), "Chi ti\u1EBFt nh\u1EADp s\u00E1ch", TitledBorder.LEADING, TitledBorder.TOP, null, null));
+        panel.setBorder(new TitledBorder(new LineBorder(new Color(192, 192, 192)), "Chi tiết nhập sách", TitledBorder.LEADING, TitledBorder.TOP, null, null));
         panel.setBounds(10, 11, 307, 147);
         getContentPane().add(panel);
         panel.setLayout(null);
@@ -142,7 +140,7 @@ public class NhapSach extends JFrame {
         getContentPane().add(bReset);
 
         JPanel p1 = new JPanel();
-        p1.setBorder(new TitledBorder(new LineBorder(new Color(192, 192, 192)), "Th\u00F4ng tin s\u00E1ch", TitledBorder.LEADING, TitledBorder.TOP, null, null));
+        p1.setBorder(new TitledBorder(new LineBorder(new Color(192, 192, 192)), "Thông tin sách", TitledBorder.LEADING, TitledBorder.TOP, null, null));
         p1.setBounds(10, 197, 307, 82);
         getContentPane().add(p1);
         p1.setLayout(null);
@@ -254,7 +252,8 @@ public class NhapSach extends JFrame {
                                 tfTenSach.setText("");
                             }
 
-                        } catch (SQLException | HeadlessException e) {
+                        } catch (Exception e) {
+                            e.printStackTrace();
                         }
                     }
                 });
@@ -310,7 +309,8 @@ public class NhapSach extends JFrame {
                                 JOptionPane.showMessageDialog(null, "Mã sách không tồn tại! Vui lòng khai báo thông tin sách", "Thông báo", JOptionPane.ERROR_MESSAGE);
                                 tfMaSach.setText("");
                             }
-                        } catch (SQLException | HeadlessException e) {
+                        } catch (Exception e) {
+                            e.printStackTrace();
                         }
                     }
                 });
@@ -352,7 +352,6 @@ public class NhapSach extends JFrame {
             public void actionPerformed(ActionEvent arg0) {
 
                 if (inUse.equals("Ma sach")) {
-                    @SuppressWarnings("UnusedAssignment")
                     String ngaynhap = null;
                     if (tfNgayNhap.getText().equals("")) {
                         DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
@@ -374,12 +373,12 @@ public class NhapSach extends JFrame {
                             JOptionPane.showMessageDialog(null, "Lỗi", "Thông báo", JOptionPane.ERROR_MESSAGE);
                         }
 
-                    } catch (NumberFormatException | SQLException | HeadlessException e) {
+                    } catch (Exception e) {
+                        e.printStackTrace();
                     }
                 }
 
                 if (inUse.equals("Ten sach")) {
-                    @SuppressWarnings("UnusedAssignment")
                     String ngaynhap = null;
                     if (tfNgayNhap.getText().equals("")) {
                         DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
@@ -410,7 +409,8 @@ public class NhapSach extends JFrame {
                             JOptionPane.showMessageDialog(null, "Lỗi", "Thông báo", JOptionPane.ERROR_MESSAGE);
                         }
 
-                    } catch (NumberFormatException | SQLException | HeadlessException e) {
+                    } catch (Exception e) {
+                        e.printStackTrace();
                     }
                 }
             }
@@ -434,6 +434,7 @@ public class NhapSach extends JFrame {
                         }
 
                     } catch (Exception e) {
+                        e.printStackTrace();
                     }
                 } else {
                     try {
@@ -449,6 +450,7 @@ public class NhapSach extends JFrame {
                         }
 
                     } catch (Exception e) {
+                        e.printStackTrace();
                     }
                 }
 

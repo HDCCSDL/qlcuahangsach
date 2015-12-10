@@ -12,7 +12,7 @@ import javax.swing.JDesktopPane;
 
 /**
  *
- * @author 10520_000
+ * @author pdc
  */
 public class JIFThongtin extends javax.swing.JInternalFrame {
 
@@ -37,7 +37,7 @@ public class JIFThongtin extends javax.swing.JInternalFrame {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         jTree1 = new javax.swing.JTree();
-        jPanelTainguyen = new javax.swing.JPanel();
+        jPanelDanhMuc = new javax.swing.JPanel();
         jLabelTieuDe = new javax.swing.JLabel();
         jButtonThongTinXB = new javax.swing.JButton();
         jButtonLoaiSach = new javax.swing.JButton();
@@ -52,8 +52,8 @@ public class JIFThongtin extends javax.swing.JInternalFrame {
         setMaximizable(true);
         setMaximumSize(new java.awt.Dimension(80, 80));
 
-        jPanelTainguyen.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        jPanelTainguyen.setPreferredSize(new java.awt.Dimension(238, 288));
+        jPanelDanhMuc.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jPanelDanhMuc.setPreferredSize(new java.awt.Dimension(238, 288));
 
         jLabelTieuDe.setBackground(new java.awt.Color(255, 153, 255));
         jLabelTieuDe.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
@@ -96,33 +96,33 @@ public class JIFThongtin extends javax.swing.JInternalFrame {
             }
         });
 
-        javax.swing.GroupLayout jPanelTainguyenLayout = new javax.swing.GroupLayout(jPanelTainguyen);
-        jPanelTainguyen.setLayout(jPanelTainguyenLayout);
-        jPanelTainguyenLayout.setHorizontalGroup(
-            jPanelTainguyenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelTainguyenLayout.createSequentialGroup()
+        javax.swing.GroupLayout jPanelDanhMucLayout = new javax.swing.GroupLayout(jPanelDanhMuc);
+        jPanelDanhMuc.setLayout(jPanelDanhMucLayout);
+        jPanelDanhMucLayout.setHorizontalGroup(
+            jPanelDanhMucLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelDanhMucLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanelTainguyenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanelDanhMucLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabelTieuDe, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelTainguyenLayout.createSequentialGroup()
-                        .addGroup(jPanelTainguyenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelDanhMucLayout.createSequentialGroup()
+                        .addGroup(jPanelDanhMucLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jButtonTacGia, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jButtonLoaiSach, javax.swing.GroupLayout.DEFAULT_SIZE, 229, Short.MAX_VALUE)
                             .addComponent(jButtonThongTinXB, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jButtonLinhVuc, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 229, Short.MAX_VALUE))
                         .addContainerGap())))
         );
-        jPanelTainguyenLayout.setVerticalGroup(
-            jPanelTainguyenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelTainguyenLayout.createSequentialGroup()
+        jPanelDanhMucLayout.setVerticalGroup(
+            jPanelDanhMucLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelDanhMucLayout.createSequentialGroup()
                 .addComponent(jLabelTieuDe, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(1, 1, 1)
                 .addComponent(jButtonTacGia)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(5, 5, 5)
                 .addComponent(jButtonLoaiSach)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(5, 5, 5)
                 .addComponent(jButtonLinhVuc)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(5, 5, 5)
                 .addComponent(jButtonThongTinXB)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -135,16 +135,16 @@ public class JIFThongtin extends javax.swing.JInternalFrame {
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addContainerGap()
-                    .addComponent(jPanelTainguyen, javax.swing.GroupLayout.DEFAULT_SIZE, 253, Short.MAX_VALUE)
+                    .addComponent(jPanelDanhMuc, javax.swing.GroupLayout.DEFAULT_SIZE, 253, Short.MAX_VALUE)
                     .addContainerGap()))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 235, Short.MAX_VALUE)
+            .addGap(0, 236, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addContainerGap()
-                    .addComponent(jPanelTainguyen, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanelDanhMuc, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addContainerGap(23, Short.MAX_VALUE)))
         );
 
@@ -221,7 +221,7 @@ public class JIFThongtin extends javax.swing.JInternalFrame {
     private javax.swing.JButton jButtonTacGia;
     private javax.swing.JButton jButtonThongTinXB;
     private javax.swing.JLabel jLabelTieuDe;
-    private javax.swing.JPanel jPanelTainguyen;
+    private javax.swing.JPanel jPanelDanhMuc;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTree jTree1;
     // End of variables declaration//GEN-END:variables

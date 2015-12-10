@@ -3,7 +3,6 @@ package GUI.FrameControlCongcu;
 import java.awt.Color;
 import java.awt.Cursor;
 import java.awt.Font;
-import java.awt.HeadlessException;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -104,7 +103,8 @@ public class TimMaSach extends JFrame {
                                 tfTenSach.setText("");
                             }
 
-                        } catch (SQLException | HeadlessException e) {
+                        } catch (Exception e) {
+                            e.printStackTrace();
                         }
                     }
                 });
@@ -119,7 +119,6 @@ public class TimMaSach extends JFrame {
         });
 
         list.addListSelectionListener(new ListSelectionListener() {
-            @Override
             public void valueChanged(ListSelectionEvent arg0) {
                 try {
                     String tensach = (String) list.getSelectedValue();
@@ -132,6 +131,7 @@ public class TimMaSach extends JFrame {
                     }
 
                 } catch (Exception e) {
+                    e.printStackTrace();
                 }
 
             }

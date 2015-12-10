@@ -15,12 +15,10 @@ import javax.swing.JScrollPane;
 import javax.swing.border.TitledBorder;
 import javax.swing.JLabel;
 import java.awt.Font;
-import java.awt.HeadlessException;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.sql.SQLException;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 
@@ -66,13 +64,13 @@ public class LoaiSach extends JFrame {
         panel.add(lbTenLoaiSach);
 
         tfMaLoaiSach = new JTextField();
-        tfMaLoaiSach.setBounds(91, 30, 81, 20);
+        tfMaLoaiSach.setBounds(91, 30, 81, 25);
         panel.add(tfMaLoaiSach);
         tfMaLoaiSach.setColumns(10);
 
         tfTenLoaiSach = new JTextField();
         tfTenLoaiSach.setColumns(10);
-        tfTenLoaiSach.setBounds(287, 30, 149, 20);
+        tfTenLoaiSach.setBounds(287, 30, 149, 25);
         panel.add(tfTenLoaiSach);
 
         JButton bThem = new JButton("Thêm");
@@ -100,7 +98,7 @@ public class LoaiSach extends JFrame {
             public void mouseExited(MouseEvent ev) {
                 try {
 
-                    if (tfMaLoaiSach.getText().length() > 2) {
+                    if (tfMaLoaiSach.getText().length() > 10) {
                         JOptionPane.showMessageDialog(null, "Mã loại sách không đúng quy định");
                         tfMaLoaiSach.requestFocus();
                     } else {
@@ -115,7 +113,8 @@ public class LoaiSach extends JFrame {
                             }
                         }
                     }
-                } catch (HeadlessException | SQLException e) {
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
             }
         });
@@ -140,7 +139,7 @@ public class LoaiSach extends JFrame {
 
                 if (mals.equals("") || tenls.equals("")) {
                     JOptionPane.showMessageDialog(null, "Vui lòng điền thông tin đầy đủ", "Thông báo", JOptionPane.INFORMATION_MESSAGE);
-                } else if (mals.length() < 2) {
+                } else if (mals.length() < 10) {
                     JOptionPane.showMessageDialog(null, "Mã loại sách không đúng quy định");
                     tfMaLoaiSach.requestFocus();
                 } else {
@@ -152,12 +151,15 @@ public class LoaiSach extends JFrame {
 
                         if (n == 1) {
                             JOptionPane.showMessageDialog(null, "Thêm loại sách mới thành công", "Hoàn tất", JOptionPane.INFORMATION_MESSAGE);
+                            tfMaLoaiSach.setText("");
+                            tfTenLoaiSach.setText("");
                         } else {
                             JOptionPane.showMessageDialog(null, "Lỗi!! Vui lòng kiểm tra lại", "Thông báo", JOptionPane.ERROR_MESSAGE);
                         }
                         LoadTable();
 
-                    } catch (SQLException | HeadlessException e) {
+                    } catch (Exception e) {
+                        e.printStackTrace();
                     }
                 }
             }
@@ -200,7 +202,8 @@ public class LoaiSach extends JFrame {
                                 JOptionPane.showMessageDialog(null, "Lỗi!!");
                             }
 
-                        } catch (SQLException | HeadlessException e) {
+                        } catch (Exception e) {
+                            e.printStackTrace();
                         }
                     }
 
@@ -216,9 +219,7 @@ public class LoaiSach extends JFrame {
             Statement statement = ketnoi.ConnectDB.getConnection().createStatement();
             String sql = "SELECT * FROM LOAISACH";
             ResultSet rs = statement.executeQuery(sql);
-            @SuppressWarnings("LocalVariableHidesMemberVariable")
             Vector col = new Vector();
-            @SuppressWarnings("LocalVariableHidesMemberVariable")
             Vector data = new Vector();
             col.add("Mã loại sách");
             col.add("Tên loại sách");
@@ -233,6 +234,7 @@ public class LoaiSach extends JFrame {
             table.setModel(new DefaultTableModel(data, col));
 
         } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 

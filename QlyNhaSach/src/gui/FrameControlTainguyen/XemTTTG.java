@@ -93,7 +93,6 @@ public class XemTTTG extends JFrame {
 
         this.addWindowListener(new WindowAdapter() {
 
-            @Override
             public void windowOpened(WindowEvent ev) {
                 try {
 
@@ -109,6 +108,7 @@ public class XemTTTG extends JFrame {
                     }
 
                 } catch (Exception e) {
+                    e.printStackTrace();
                 }
 
             }

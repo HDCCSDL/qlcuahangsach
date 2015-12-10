@@ -17,8 +17,10 @@ import java.beans.PropertyVetoException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JComponent;
+import javax.swing.JDialog;
 import javax.swing.JInternalFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 import javax.swing.plaf.DesktopPaneUI;
@@ -68,7 +70,7 @@ public class jframeMain extends javax.swing.JFrame implements ActionListener {
             }
         });
 
-        JIFTainguyen frame;
+        /*JIFTainguyen frame;
 
         try {
             frame = new JIFTainguyen();
@@ -82,7 +84,7 @@ public class jframeMain extends javax.swing.JFrame implements ActionListener {
 
         } catch (PropertyVetoException ex) {
             Logger.getLogger(JIFTainguyen.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        }*/
     }
 
     // Set kich thuoc cac tab menu
@@ -108,7 +110,6 @@ public class jframeMain extends javax.swing.JFrame implements ActionListener {
         jButtonBanHang = new javax.swing.JButton();
         jButtonHeThong = new javax.swing.JButton();
         jButtonTainguyen = new javax.swing.JButton();
-        jButtonThongtin1 = new javax.swing.JButton();
         jButtonKhuyenmai = new javax.swing.JButton();
         jButtonCongcu = new javax.swing.JButton();
         jButtonBaoCao = new javax.swing.JButton();
@@ -136,39 +137,38 @@ public class jframeMain extends javax.swing.JFrame implements ActionListener {
         desktopCN.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         jLabel5.setFont(new java.awt.Font("Times New Roman", 1, 36)); // NOI18N
+        desktopCN.add(jLabel5);
         jLabel5.setBounds(20, 100, 0, 0);
-        desktopCN.add(jLabel5, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jLabel3.setFont(new java.awt.Font("Times New Roman", 1, 48)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("HỆ THỐNG QUẢN LÝ NHÀ SÁCH");
+        desktopCN.add(jLabel3);
         jLabel3.setBounds(140, 60, 830, 60);
-        desktopCN.add(jLabel3, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/Book.gif"))); // NOI18N
         jLabel1.setText("jLabel1");
+        desktopCN.add(jLabel1);
         jLabel1.setBounds(480, 310, 260, 260);
-        desktopCN.add(jLabel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/data/img/1.png"))); // NOI18N
-        jLabel4.setText("jLabel4");
+        desktopCN.add(jLabel4);
         jLabel4.setBounds(10, 170, 310, 210);
-        desktopCN.add(jLabel4, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/data/img/2.png"))); // NOI18N
         jLabel6.setText("jLabel6");
+        desktopCN.add(jLabel6);
         jLabel6.setBounds(10, 390, 310, 153);
-        desktopCN.add(jLabel6, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/data/img/3.png"))); // NOI18N
         jLabel7.setText("jLabel7");
+        desktopCN.add(jLabel7);
         jLabel7.setBounds(10, 550, 150, 132);
-        desktopCN.add(jLabel7, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/data/img/4.png"))); // NOI18N
         jLabel8.setText("jLabel8");
+        desktopCN.add(jLabel8);
         jLabel8.setBounds(170, 550, 150, 130);
-        desktopCN.add(jLabel8, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jPanelTab.setBackground(new java.awt.Color(51, 51, 51));
         jPanelTab.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -210,15 +210,6 @@ public class jframeMain extends javax.swing.JFrame implements ActionListener {
             }
         });
 
-        jButtonThongtin1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/author.png"))); // NOI18N
-        jButtonThongtin1.setText("Trợ giúp");
-        jButtonThongtin1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jButtonThongtin1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonThongtin1ActionPerformed(evt);
-            }
-        });
-
         jButtonKhuyenmai.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/cp.png"))); // NOI18N
         jButtonKhuyenmai.setText("Chương trình khuyến mãi");
         jButtonKhuyenmai.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
@@ -257,8 +248,7 @@ public class jframeMain extends javax.swing.JFrame implements ActionListener {
                     .addComponent(jButtonBanHang, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButtonHeThong, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButtonTainguyen, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButtonThongtin1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButtonKhuyenmai, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButtonKhuyenmai, javax.swing.GroupLayout.DEFAULT_SIZE, 254, Short.MAX_VALUE)
                     .addComponent(jButtonCongcu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButtonBaoCao, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
@@ -266,7 +256,7 @@ public class jframeMain extends javax.swing.JFrame implements ActionListener {
         jPanelTabLayout.setVerticalGroup(
             jPanelTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelTabLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(32, 32, 32)
                 .addComponent(jButtonTainguyen, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButtonThongtin, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -280,9 +270,7 @@ public class jframeMain extends javax.swing.JFrame implements ActionListener {
                 .addComponent(jButtonKhuyenmai, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButtonHeThong, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(5, 5, 5)
-                .addComponent(jButtonThongtin1, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addContainerGap(31, Short.MAX_VALUE))
         );
 
         jButtonLogout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/logout.png"))); // NOI18N
@@ -310,34 +298,37 @@ public class jframeMain extends javax.swing.JFrame implements ActionListener {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(20, 20, 20)
+                .addGap(0, 0, 0)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jButtonLogout, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
                         .addGap(29, 29, 29)
-                        .addComponent(jButtonExit, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jButtonExit, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(23, 23, 23))
                     .addComponent(jPanelTab, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(desktop))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(desktopCN, javax.swing.GroupLayout.DEFAULT_SIZE, 611, Short.MAX_VALUE)
+                .addComponent(desktopCN, javax.swing.GroupLayout.DEFAULT_SIZE, 631, Short.MAX_VALUE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(6, 6, 6)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGap(2, 2, 2)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(desktopCN)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(desktop, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jPanelTab, javax.swing.GroupLayout.PREFERRED_SIZE, 425, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jPanelTab, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jButtonExit)
-                            .addComponent(jButtonLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(35, Short.MAX_VALUE))
+                            .addComponent(jButtonLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap(25, Short.MAX_VALUE))))
         );
+
+        layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jButtonExit, jButtonLogout});
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -424,19 +415,30 @@ public class jframeMain extends javax.swing.JFrame implements ActionListener {
 
     private void jButtonExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonExitActionPerformed
         // TODO add your handling code here:
-        System.exit(0);
+        JDialog.setDefaultLookAndFeelDecorated(true);
+        int response = JOptionPane.showConfirmDialog(null, "Thoát Chương Trình ?", "Confirm", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+        switch (response) {
+            case JOptionPane.NO_OPTION:
+                //System.out.println("No button clicked");
+                break;
+            case JOptionPane.YES_OPTION:
+                //System.out.println("Yes button clicked");
+                System.exit(0);
+                break;
+            case JOptionPane.CLOSED_OPTION:
+                //System.out.println("JOptionPane closed");
+                break;
+            default:
+                break;
+        }
+        
+        
     }//GEN-LAST:event_jButtonExitActionPerformed
 
     private void jButtonLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLogoutActionPerformed
-        new Login().show();
+        new jLogin().show();
         dispose();
     }//GEN-LAST:event_jButtonLogoutActionPerformed
-
-    private void jButtonThongtin1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonThongTinActionPerformed
-        // TODO add your handling code here:
-        new ThongTin().show();
-
-    }//GEN-LAST:event_jButtonThongTinActionPerformed
 
     private void jButtonKhuyenmaiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonKhuyenmaiActionPerformed
         // TODO add your handling code here:
@@ -480,7 +482,7 @@ public class jframeMain extends javax.swing.JFrame implements ActionListener {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    //javax.swing.UIManager.setLookAndFeel("com.jtattoo.plaf.bernstein.BernsteinLookAndFeel");
+                    javax.swing.UIManager.setLookAndFeel("com.jtattoo.plaf.bernstein.BernsteinLookAndFeel");
                     break;
                 }
             }
@@ -500,16 +502,15 @@ public class jframeMain extends javax.swing.JFrame implements ActionListener {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDesktopPane desktop;
     private javax.swing.JDesktopPane desktopCN;
-    private javax.swing.JButton jButtonBanHang;
-    private javax.swing.JButton jButtonBaoCao;
-    private javax.swing.JButton jButtonCongcu;
+    public static javax.swing.JButton jButtonBanHang;
+    public static javax.swing.JButton jButtonBaoCao;
+    public static javax.swing.JButton jButtonCongcu;
     private javax.swing.JButton jButtonExit;
-    private javax.swing.JButton jButtonHeThong;
-    private javax.swing.JButton jButtonKhuyenmai;
+    public static javax.swing.JButton jButtonHeThong;
+    public static javax.swing.JButton jButtonKhuyenmai;
     private javax.swing.JButton jButtonLogout;
-    private javax.swing.JButton jButtonTainguyen;
-    private javax.swing.JButton jButtonThongtin;
-    private javax.swing.JButton jButtonThongtin1;
+    public static javax.swing.JButton jButtonTainguyen;
+    public static javax.swing.JButton jButtonThongtin;
     private javax.swing.JInternalFrame jInternalFrame1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
